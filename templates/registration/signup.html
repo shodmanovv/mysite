@@ -1,0 +1,58 @@
+{% extends "blog/base.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+
+<main class="form-signin">
+  <div class="container py-5 px-5">
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Kirish</h4>
+        <form class="needs-validation" novalidate method="post">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Ism</label>
+              {{ form.first_name }}
+              <div class="invalid-feedback">
+                Ismini kiriting.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Familiya</label>
+              {{ form.last_name }}
+              <div class="invalid-feedback">
+                Familiyani kiriting.
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text">@</span>
+                {{ form.username }}
+              </div>
+              <div class="invalid-feedback">
+                Usernameni kiriting.
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Parol</label>
+              {{ form.password1 }}
+              <div class="invalid-feedback">
+                Parolni kiriting.
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Parolni Tasdiqlanq</label>
+              {{ form.password2 }}
+              <div class="invalid-feedback">
+                Parolni Tasdiqlanq.
+              </div>
+            </div>
+          </div>
+          <button class="w-100 btn btn-primary btn-lg mt-5" type="submit">Joʻnatish</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}                                                                                                  
