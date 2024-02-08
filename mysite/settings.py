@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-nxm@m4u20f9bs#wk1%uwv_3qr1ovu!9o3^g-#pqb@s_)89yn4a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mysite-flax-mu.vercel.app"]
+ALLOWED_HOSTS = ["https://mysite-flax-mu.vercel.app/"]
 
 
 # Application definition
