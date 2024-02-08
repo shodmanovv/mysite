@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+import logging.config
+
+LOGGING_CONFIG = None
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +17,7 @@ SECRET_KEY = 'django-insecure-nxm@m4u20f9bs#wk1%uwv_3qr1ovu!9o3^g-#pqb@s_)89yn4a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.com"]
+ALLOWED_HOSTS = ["mysite-flax-mu.vercel.app"]
 
 
 # Application definition
@@ -117,3 +120,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'blog:home'
 LOGIN_URL = 'blog:user_logout'
 LOGOUT_REDIRECT_URL = 'blog:home'
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "propagate": False,
+        },
+    },
+}
