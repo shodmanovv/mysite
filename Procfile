@@ -1,1 +1,1 @@
-web: guicorn core.wsgi:application
+web: guicorn mysite.wsgi:application
